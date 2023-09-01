@@ -1,8 +1,8 @@
 <?php 
     //DBに接続する為の処理
     $dsn = 'mysql:dbname=kadais;host=localhost;charset=utf8mb4';
-    $user = 'root';
-    $password = 'ozi123';
+    $user = 'hoge';
+    $password = 'hoge';
     try { 
         $dbh = new PDO($dsn, $user, $password);     
         } catch(PDOException $e) {
