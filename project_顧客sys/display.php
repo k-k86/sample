@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>顧客情報一覧</title>
+		<meta charset=utf-8>
 	</head>
 </html>
 
@@ -75,9 +76,7 @@
 			echo "</td>";
 			echo "</tr>";
 			echo "<tr>";
-			echo "<td>";
-			echo '<input type="checkbox" name="check[]" value= "' . $result['cust_no'] . '" />';
-			echo "</td>";
+			echo "<td><input type="checkbox" name="check[]" value="{$result['cust_no']}"></td>";
 			echo "<td>";
 			echo $result['cust_no'];
 			echo "</td>";
