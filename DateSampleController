@@ -1,0 +1,52 @@
+package com.example.demo.sampleController;
+
+import java.text.ParseException;
+import java.util.Date;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.demo.sampleForm.DateForm;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@RequestMapping("/date")
+@Controller
+public class DateSampleController {
+
+	//モデルにLoginFormがない場合は初期化してModelに格納する
+	@ModelAttribute
+	public DateForm setUpForm() {
+		return new DateForm();
+	}
+	
+	@GetMapping
+	public String showDateForm() {
+		return "View_Date";
+	}
+	
+	
+	@PostMapping("showDateView")
+	public String showDateView(Model model,DateForm form) {
+		
+		try {
+			Date formatDate = form.parseDate(form.getFormDate());
+			model.addAttribute("dateValue",formatDate);
+			
+			return "showDate";
+			
+		} catch (ParseException e) {
+			
+			model.addAttribute("errMes","日付の形式が正しくありません");
+			e.printStackTrace();
+			return "View_Date";
+		}
+	}
+
+
+}
