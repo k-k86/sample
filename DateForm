@@ -1,0 +1,32 @@
+package com.example.demo.sampleForm;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+public class DateForm {
+	
+	private String formDate;
+	
+	public Date parseDate(String formDate) throws ParseException {
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+		Date date = format.parse(formDate);
+		
+		return date;
+	}
+
+	public String getFormDate() {
+		return formDate;
+	}
+
+	public void setFormDate(String formDate) {
+		this.formDate = formDate;
+	}
+
+}
