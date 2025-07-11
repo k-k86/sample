@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>日付入力</title>
+</head>
+<body>
+	<form th:action="@{/date/showDateView}" th:object="${dateForm}" method="post">
+	<div>
+		<input type="text" th:field="*{formDate}" placeholder="日付を入力してください">
+		<span th:text="${errMes}" style="color: red;"></span>
+	</div>
+
+	<input type="submit" value="送信">
+	</form>
+</body>
+</html>
